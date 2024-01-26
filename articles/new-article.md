@@ -1,12 +1,12 @@
 ---
 Author: Danil
 Updated: 2022-06-05
-image: /images/img.jpeg
+image: ./images/img.jpeg
 ---
 
 # My new article
 
-![An image](/images/img.jpeg)
+![An image](../images/img.jpeg)
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
 
