@@ -1,10 +1,12 @@
 ---
 Author: Danil
 Updated: 2022-06-05
-image: https://images.unsplash.com/photo-1664575198263-269a022d6e14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
+image: /images/img.jpeg
 ---
 
 # My new article
+
+![An image](/images/img.jpeg)
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
 
