@@ -5,11 +5,11 @@ import fs from 'node:fs/promises';
 import matter from 'gray-matter';
 import removeMd from 'remove-markdown';
 
-const articles = await fs.readdir('./articles');
+const articles = await fs.readdir('articles');
 
 const data = await Promise.all(
     articles.map(async (article) => {
-        const file = matter.read(`./articles/${article}`, {
+        const file = matter.read(`articles/${article}`, {
             excerpt: true,
             excerpt_separator: `
 
@@ -31,4 +31,4 @@ const data = await Promise.all(
         };
     })
 );
-await fs.writeFile('./src/data.json', JSON.stringify(data), 'utf-8');
+await fs.writeFile('src/data.json', JSON.stringify(data), 'utf-8');
