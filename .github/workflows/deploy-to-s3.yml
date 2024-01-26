@@ -18,6 +18,9 @@ jobs:
       with:
         node-version: '20' # Set this to your Node.js version
 
+    - name: Remove deps
+      run: rm -rf node_modules/
+
     - name: Install Dependencies
       run: npm install
 
