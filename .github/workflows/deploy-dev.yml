@@ -1,0 +1,39 @@
+name: Deploy to S3
+
+on:
+  pull_request:
+    branches:
+      - main  # Set this to your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '20' # Set this to your Node.js version
+
+    - name: Remove deps
+      run: rm -rf node_modules/
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Deploy to S3
+      uses: jakejarvis/s3-sync-action@v0.5.1
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_DEV }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'  # Set your AWS region
+        SOURCE_DIR: '.vitepress/dist'
