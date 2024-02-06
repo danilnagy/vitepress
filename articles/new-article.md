@@ -1,7 +1,8 @@
 ---
 Author: Danil
+Title: Article 3
 Updated: 2022-06-05
-image: /images/img.jpeg
+Image: /images/img.jpeg
 ---
 
 # My new article

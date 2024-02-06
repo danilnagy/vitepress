@@ -1,5 +1,7 @@
-<script setup>
-  import App from './src/App.vue'
-</script>
+# Welcome
 
-<App />
+This is the main landing page.
+
+![image alt text](/images/img.jpeg)
+
+You can edit the content in Markdown!

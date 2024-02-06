@@ -1,23 +1,21 @@
 <template>
-    <a :href="href">
         <div class="card">
             <div class="flex">
-                <div class="media">
+                <!-- <div class="media">
                     <img :src="image" :alt="title" />
-                </div>
+                </div> -->
                 <div class="details">
-                    <h2 class="title">{{ title }}</h2>
+                    <a :href="href" class="title">{{ title }}</a>
                     <p class="excerpt">{{ truncateText(excerpt, 50) }}</p>
-                    <div class="author">
+                    <!-- <div class="author">
                         <div>
                             <h3 class="name">{{ author }}</h3>
                             <p class="date">{{ date }}</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-    </a>
 </template>
 
 <script>
@@ -60,18 +58,18 @@ export default {
 </script>
 
 <style scoped>
-.card {
+/* .card {
     border-radius: 0.5rem;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     margin-bottom: 1.5rem;
     overflow: hidden;
     width: 100%;
-}
+} */
 
-.card:hover {
+/* .card:hover {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
     transition: ease-in-out 0.2s all;
-}
+} */
 
 .flex {
     display: flex;

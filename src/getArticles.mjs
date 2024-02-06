@@ -5,10 +5,10 @@ import fs from 'node:fs/promises';
 import matter from 'gray-matter';
 import removeMd from 'remove-markdown';
 
-const articles = await fs.readdir('articles');
+const articles = await fs.readdir('articles')
 
 const data = await Promise.all(
-    articles.map(async (article) => {
+    articles.filter(article => article !== "index.md").map(async (article) => {
         const file = matter.read(`articles/${article}`, {
             excerpt: true,
             excerpt_separator: `
@@ -21,8 +21,8 @@ const data = await Promise.all(
             .split(/\r\n|\n|\r/);
         return {
             ...data,
-            title: contents[0].replace(/\s{2,}/g, '').trim(),
-            path: path.replace('/docs/', '').replace(/\.md$/, '.html'),
+            // title: contents[0].replace(/\s{2,}/g, '').trim(),
+            path: path.replace('articles/', '').replace(/\.md$/, '.html'),
             excerpt: contents
                 .slice(1)
                 .join('')
